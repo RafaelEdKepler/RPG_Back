@@ -11,7 +11,7 @@ class InfoController {
   }
 
   async update(req, res) {
-    const {id, name, description, obs, language, size, domain, actualLocation, x_mouse, y_mouse} = req.body;
+    const {id, name, description, obs, language, size, domain, actualLocation, objective, type, x_mouse, y_mouse} = req.body;
     const info = await Info.findOne({
       where: {
         id
@@ -26,14 +26,16 @@ class InfoController {
       domain,
       actualLocation,
       x_mouse,
-      y_mouse
+      y_mouse,
+      objective,
+      type
     })
     info.save();
     return res.status(200).json(info);
   }
 
   async save(req, res) {
-    const {name, description, obs, language, size, domain, actualLocation, x_mouse, y_mouse} = req.body;
+    const {name, description, obs, language, size, domain, actualLocation, objective, type, x_mouse, y_mouse} = req.body;
     const newInfo = await Info.create({
       name,
       description,
@@ -43,7 +45,10 @@ class InfoController {
       domain,
       actualLocation,
       x_mouse,
-      y_mouse
+      y_mouse,
+      objective,
+      type,
+      campaing: 1
     })
     return res.status(200).json(newInfo);
   }
@@ -57,7 +62,7 @@ class InfoController {
     })
     info.update({
       active: 0
-    })    
+    })
     info.save();
     return res.status(200).send("Remoção concluída com sucesso!")
   }

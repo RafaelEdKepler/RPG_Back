@@ -26,6 +26,15 @@ Info.init(
     actualLocation: {
       type: DataTypes.STRING,
     },
+    objective: {
+      type: DataTypes.STRING,
+    },
+    type: {
+      type: DataTypes.STRING,
+    },
+    campaing: {
+      type: DataTypes.STRING,
+    },
     active: {
       type: DataTypes.INTEGER,
       defaultValue: 1
@@ -35,13 +44,14 @@ Info.init(
     },
     y_mouse: {
       type: DataTypes.INTEGER
-    }
+    },
+
   },
   {
     sequelize,
     modelName: "Info",
     timestamps: true
-  }  
+  }
 )
 
 module.exports = Info
