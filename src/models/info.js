@@ -45,7 +45,12 @@ Info.init(
     y_mouse: {
       type: DataTypes.INTEGER
     },
-
+    width: {
+      type: DataTypes.INTEGER
+    },
+    height: {
+      type: DataTypes.INTEGER
+    }
   },
   {
     sequelize,

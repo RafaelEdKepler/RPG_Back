@@ -11,7 +11,7 @@ class InfoController {
   }
 
   async update(req, res) {
-    const {id, name, description, obs, language, size, domain, actualLocation, objective, type, x_mouse, y_mouse} = req.body;
+    const {id, name, description, obs, language, size, domain, actualLocation, objective, type, x_mouse, y_mouse, width, height} = req.body;
     const info = await Info.findOne({
       where: {
         id
@@ -28,14 +28,16 @@ class InfoController {
       x_mouse,
       y_mouse,
       objective,
-      type
+      type,
+      width,
+      height
     })
     info.save();
     return res.status(200).json(info);
   }
 
   async save(req, res) {
-    const {name, description, obs, language, size, domain, actualLocation, objective, type, x_mouse, y_mouse} = req.body;
+    const {name, description, obs, language, size, domain, actualLocation, objective, type, x_mouse, y_mouse, width, height} = req.body;
     const newInfo = await Info.create({
       name,
       description,
@@ -48,6 +50,8 @@ class InfoController {
       y_mouse,
       objective,
       type,
+      width,
+      height,
       campaing: 1
     })
     return res.status(200).json(newInfo);
