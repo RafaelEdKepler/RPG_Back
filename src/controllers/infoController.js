@@ -11,7 +11,7 @@ class InfoController {
   }
 
   async update(req, res) {
-    const {id, name, description, obs, language, size, domain, actualLocation, objective, type, x_mouse, y_mouse, width, height} = req.body;
+    const {id, name, description, obs, language, size, domain, actualLocation, objective, x_mouse, y_mouse, width, height} = req.body;
     const info = await Info.findOne({
       where: {
         id
@@ -28,7 +28,6 @@ class InfoController {
       x_mouse,
       y_mouse,
       objective,
-      type,
       width,
       height
     })
